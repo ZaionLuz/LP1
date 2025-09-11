@@ -1,1 +1,1 @@
-Aqui vão estar todos os códigos que criarei enquanto curso a disciplina Linguagem de Progamação 1, o livro usado para resoluçao de questoes foi o Livro - Introdução a Estrutura de Dados - Waldemar Celes e José Lucas Rangel 2004.pdf
+Aqui vão estar todos os códigos que fiz enquanto curso a disciplina Linguagem de Progamação 1, o livro usado para resoluçao de questoes foi o Livro - Introdução a Estrutura de Dados - Waldemar Celes e José Lucas Rangel 2004.pdf
