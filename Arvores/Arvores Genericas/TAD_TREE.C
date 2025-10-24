@@ -1,4 +1,4 @@
-#include "TAD_TreeGen.h"
+#include "TAD_TREE.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,7 +12,10 @@ Params
 Return
     True if the tree is empty, otherwise false.
 */
-int tree_empty(Node *root);
+int tree_empty(Node *root)
+{
+    return root == NULL;
+}
 
 /* CREATE AN ENPTY TREE
     Creates a empty tree.
@@ -20,7 +23,10 @@ int tree_empty(Node *root);
 Return
     (Node*)NULL, representing a empty tree.
 */
-Node *tree_create_empty();
+Node *tree_create_empty()
+{
+    return NULL;
+}
 
 /*CREATE A NODE
     Creates a node with an info and left and right sub-tree.
@@ -33,7 +39,16 @@ Params
 Return
     pointer to a new node (Node*).
 */
-Node *tree_create_node(void *info, Node *lst, Node *rst);
+Node *tree_create_node(void *info, Node *lst, Node *rst)
+{
+    Node *nova = (Node *)malloc(sizeof(Node));
+
+    nova->info = info;
+    nova->lst = lst;
+    nova->rst = rst;
+
+    return nova;
+}
 
 /*INSERT A NODE
     Inserts a node in a tree based on a comparison.
@@ -49,7 +64,35 @@ Return
     True if the new_node was placed in the tree,
     otherwise false.
 */
-Node *tree_insert_node(Node *root, Node *new_node, int(compare)(void *, void *));
+Node *tree_insert_node(Node *root, Node *new_node, int (*compare)(void *, void *))
+{
+    // Caso base: árvore vazia, o novo nó se torna a raiz
+    if (root == NULL)
+        return new_node;
+
+    // Se a comparação for verdadeira, insere no lado esquerdo
+    if (compare(new_node->info, root->info))
+    {
+        // Se a subárvore esquerda estiver vazia, coloca o novo nó lá
+        if (root->left == NULL)
+            root->left = new_node;
+        else
+            // Caso contrário, desce recursivamente à esquerda
+            tree_insert_node(root->left, new_node, compare);
+    }
+    else
+    {
+        // Se a comparação for falsa, insere no lado direito
+        if (root->right == NULL)
+            root->right = new_node;
+        else
+            // Caso contrário, desce recursivamente à direita
+            tree_insert_node(root->right, new_node, compare);
+    }
+
+    // Retorna o ponteiro para a raiz (nunca muda, apenas os filhos)
+    return root;
+}
 
 /*FREE A TREE
     free memory of all elements in a tree/subtree starting from the "root" node.
@@ -57,7 +100,18 @@ Node *tree_insert_node(Node *root, Node *new_node, int(compare)(void *, void *))
 Params
     root: a node of a tree/subtree that you would like to free.
 */
-void tree_free(Node *root);
+void tree_free(Node *root)
+{
+    if (!tree_empty(root))
+    {
+
+        tree_free(root->lst);
+        tree_free(root->rst);
+
+        free(root);
+    }
+    return NULL;
+}
 
 /*PERFORM OPERATION IN A TREE
     perform an operation in all elements of a tree.

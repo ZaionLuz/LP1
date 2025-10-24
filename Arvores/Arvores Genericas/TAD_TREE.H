@@ -1,8 +1,6 @@
 #ifndef __TAD_TREE_H__
     #define __TAD_TREE_H__
 
-    #include "../Aula 6 Listas Genehricas/TAD_LISTAGEN/TAD_LISTAGEN.h"
-
     typedef struct node{
         void* info;
         struct node* lst;
