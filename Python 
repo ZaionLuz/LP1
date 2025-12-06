@@ -1,0 +1,340 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyNfT+4NU1QnBfpJb84ygK7E",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ZaionLuz/LP1/blob/main/Python%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# LP1 - Iniciando em Python"
+      ],
+      "metadata": {
+        "id": "JiGYIbLeuNsh"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<p>8) Você está desenvolvendo um programa para o McDonald's que oferece diferentes opções de bebidas. Implemente um programa em Python para solicitar ao cliente a escolha de uma bebida e informar o preço correspondente. As opções disponíveis são:</p>\n",
+        "\n",
+        "<ul>\n",
+        "  <li>1 - Refrigerante (U&dollar;\n",
+        "   3,50)</li>\n",
+        "  <li>2 - Suco Natural (U&dollar; 4,00)</li>\n",
+        "  <li>3 - Água Mineral (U&dollar; 2,00)</li>\n",
+        "  <li>4 - Café (U&dollar; 2,50)</li>\n",
+        "</ul>\n",
+        "\n",
+        "<p>Se o cliente escolher uma opção inválida, exiba uma mensagem informando que a opção é inválida.</p>"
+      ],
+      "metadata": {
+        "id": "1AZNwT1kuiHR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "opcao=input(\"\"\"Digite a bebida que você quer escolher:\n",
+        "1- Refrigerante\n",
+        "2- Suco Natural\n",
+        "3- Água Mineral\n",
+        "4- Café\n",
+        "\"\"\")\n",
+        "\n",
+        "match(opcao):\n",
+        "  case '1':\n",
+        "    print(\"(U$ 3,50)\")\n",
+        "  case '2':\n",
+        "    print(\"(U$ 4,00)\")\n",
+        "  case '3':\n",
+        "    print(\"(U$ 2,00)\")\n",
+        "  case '4':\n",
+        "    print(\"(U$ 2,50)\")\n",
+        "  case _ :\n",
+        "    print(\"Opção Inválida\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FOGOrsJ5gVAn",
+        "outputId": "05a1bf21-a2a9-4ce9-d16d-8331ad9a417c"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite a bebida que você quer escolher:\n",
+            "1- Refrigerante\n",
+            "2- Suco Natural\n",
+            "3- Água Mineral\n",
+            "4- Café \n",
+            "5\n",
+            "Opção Inválida\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<p>10) Faça uma calculadora para somar ou subtrair\n",
+        "dois números quando digitada uma opção válida ('+' ou '-').\n",
+        "<ul>\n",
+        "Exemplo 1:\n",
+        "  <li>4</li>\n",
+        "  <li>4</li>\n",
+        "  <li>+</li>\n",
+        "  <li>4+4=8</li>\n",
+        "Exemplo 2:\n",
+        "  <li>3</li>\n",
+        "  <li>2</li>\n",
+        "  <li>-</li>\n",
+        "  <li>3-2=1</li>\n",
+        "Exemplo 3:\n",
+        "  <li>3</li>\n",
+        "  <li>3</li>\n",
+        "  <li>*</li>\n",
+        "  <li>Opção inválida...</li>\n",
+        "</ul>\n",
+        "</p>"
+      ],
+      "metadata": {
+        "id": "LaRdYjDBhp20"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num1 = float(input(\"Digite um numero: \"))\n",
+        "num2 = float(input(\"Digite outro numero: \"))\n",
+        "\n",
+        "operador = input(\"\"\"Agora digite o que você quer fazer com esses dois numeros\n",
+        "+: Somar\n",
+        "-: Subtrair\n",
+        "x: Multiplicar\n",
+        "/: Dividir\n",
+        "\"\"\")\n",
+        "\n",
+        "match operador:\n",
+        "    case '+':\n",
+        "        print(num1 + num2)\n",
+        "    case '-':\n",
+        "        print(num1 - num2)\n",
+        "    case 'x':\n",
+        "        print(num1 * num2)\n",
+        "    case '/':\n",
+        "        if num2 == 0:\n",
+        "            print(\"Não é possível dividir por zero!\")\n",
+        "        else:\n",
+        "            print(num1 / num2)\n",
+        "    case _:\n",
+        "        print(\"Operador inválido!\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "D-HzI6MXhsJb",
+        "outputId": "b91bf24f-dc25-4ece-eb2b-ae9010cb5805"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite um numero: 10\n",
+            "Digite outro numero: 10\n",
+            "Agora digite o que você quer fazer com esses dois numeros\n",
+            "+: Somar\n",
+            "-: Subtrair\n",
+            "x: Multiplicar\n",
+            "/: Dividir\n",
+            "+\n",
+            "20.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  <p>11) O laborátório de aquicultura precisa de um programa para contabilizar o peso dos peixes acima de 400g em um tanque. Eles vão retirando os peixes do tanque, pesam e incluem em outro tanque. Escreva um programa para ajudá-los nessa tarefa. O programa deve parar quando alguém digitar o peso zero."
+      ],
+      "metadata": {
+        "id": "houZGLgTnRBI"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "pesoT=0\n",
+        "\n",
+        "while True:\n",
+        "  peso=float(input(\"Digite o peso: \"))\n",
+        "  if(peso==0):\n",
+        "    break\n",
+        "  elif(peso>400):\n",
+        "    pesoT+=peso\n",
+        "print(f\"Peso total: {pesoT}\")4"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "x6-fOFfWnRaV",
+        "outputId": "96d3214f-c2c7-499f-fd32-c5aa6a5d46e4"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite o peso: 1\n",
+            "Digite o peso: 400\n",
+            "Digite o peso: 400\n",
+            "Digite o peso: 401\n",
+            "Digite o peso: 401\n",
+            "Digite o peso: 401\n",
+            "Digite o peso: 0\n",
+            "Peso total: 1203.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<p>12) Escreva um programa para pegar um número digitado, imprimir na tela todos os valores ímpares menores que ele até 1."
+      ],
+      "metadata": {
+        "id": "kyvMAX8b2dLw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numero=int(input(\"Digite um numero \"))\n",
+        "if(numero%2==0):\n",
+        "  numero=numero-1\n",
+        "for i in range(numero, 0,-2):\n",
+        "  print(i)\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kXyi4OvY2h4I",
+        "outputId": "dfed709a-e74c-4590-df63-21fdbda13cd0"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite um numero 99\n",
+            "99\n",
+            "97\n",
+            "95\n",
+            "93\n",
+            "91\n",
+            "89\n",
+            "87\n",
+            "85\n",
+            "83\n",
+            "81\n",
+            "79\n",
+            "77\n",
+            "75\n",
+            "73\n",
+            "71\n",
+            "69\n",
+            "67\n",
+            "65\n",
+            "63\n",
+            "61\n",
+            "59\n",
+            "57\n",
+            "55\n",
+            "53\n",
+            "51\n",
+            "49\n",
+            "47\n",
+            "45\n",
+            "43\n",
+            "41\n",
+            "39\n",
+            "37\n",
+            "35\n",
+            "33\n",
+            "31\n",
+            "29\n",
+            "27\n",
+            "25\n",
+            "23\n",
+            "21\n",
+            "19\n",
+            "17\n",
+            "15\n",
+            "13\n",
+            "11\n",
+            "9\n",
+            "7\n",
+            "5\n",
+            "3\n",
+            "1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<p> 13) Leia números até o usuário digitar 0 e some todos."
+      ],
+      "metadata": {
+        "id": "9gDC7GyL3xkd"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "aW0rArkL31Fq"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
